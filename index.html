@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<script>
+		function thankyou(){
+			var name=document.fv.name.value; //for text .innerHTML ,, for input field .value
+			var mobile=document.fv.mobile.value;
+			var email=document.fv.email.value;
+			var reg=/^([a-zA-Z0-9\._]+)@([a-z]+).[a-z]{2,3}$/;
+			var reg1=/^[6-9]\d{9}$/;
+			var password=document.fv.password.value;
+			var checkpassword=document.fv.checkpassword.value;
+			if(name==""){
+				alert("Enter your name");
+				return false;
+			}
+			if(name.length<3){
+				alert("Check your name");
+				return false;
+			}
+			if(mobile==""){
+			alert("Enter your mobile number");
+			return false;
+			}
+			if(isNaN(mobile)||mobile.length<10){
+				alert("You have entered a wrong number");
+				return false;
+			}
+			if(!mobile.match(reg1)){
+				alert("please enter your number properly");
+				return false;
+			}
+			if(email==""){
+				alert("Enter your email id");
+				return false;
+			}
+			if(!email.match(reg)){
+				alert("Please check your email Id");
+				return false;
+			}
+			if(password==""){
+			alert("Please enter your password");
+			return false;
+			}
+			if(password.length<8){
+				alert("Password must carry minimum 8 characters");
+				return false;
+			}
+			if(checkpassword==""){
+			alert("Please enter your confirm password");
+			return false;
+			}
+			if(!checkpassword.match(password)){
+				alert("Your password do not match");
+				return false;
+			}
+			return true;
+		}
+	</script>
+</head>
+<body>
+<h1>Working on Name Validation (Regular Expressions) JavaScript</h1>
+<form name="fv" onsubmit="return thankyou()"/>
+<p><input type="text" name="name" placeholder="Enter your name" required/></p>
+<p><input type="text" name="mobile" placeholder="Enter your mobile number"/></p>
+<p><input type="text" name="email" placeholder="Enter your Email Id"/></p>
+<p><input type="password" name="password" placeholder="Enter your password"/></p>
+<p><input type="password" name="checkpassword" placeholder="Enter your password"/></p>
+<p><input type="Submit" value="Submit"/>
+<input type="Reset" value="Reset"/></p>
+</form>  
+</body>
+</html>
